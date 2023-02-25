@@ -1,0 +1,32 @@
+Set(vGuid, 
+    Concat(
+        With(
+            {
+                listOfNumbers: Table(
+                    {Value: 1},{Value: 2},{Value: 3},
+                    {Value: 4},{Value: 5},{Value: 6},
+                    {Value: 7},{Value: 8},{Value: 9},
+                    {Value: 0}
+                ),
+                listOfLetters: Table(
+                    {Value: "A"},{Value: "B"},{Value: "C"},{Value: "D"},{Value: "E"},
+                    {Value: "F"},{Value: "G"},{Value: "H"},{Value: "I"},{Value: "J"},
+                    {Value: "K"},{Value: "L"},{Value: "M"},{Value: "N"},{Value: "O"},
+                    {Value: "P"},{Value: "Q"},{Value: "R"},{Value: "S"},{Value: "T"},
+                    {Value: "U"},{Value: "V"},{Value: "W"},{Value: "V"},{Value: "Y"},
+                    {Value: "Z"}
+                )
+            },
+            ForAll(
+                Sequence(32),
+                Switch(
+                    RandBetween(0,2),
+                    0, $"{ Last(FirstN(listOfNumbers, RandBetween(1, CountRows(listOfNumbers)))).Value }",
+                    1, $"{ Last(FirstN(listOfLetters, RandBetween(1, CountRows(listOfLetters)))).Value }", 
+                    2, $"{ Lower(Last(FirstN(listOfLetters, RandBetween(1, CountRows(listOfLetters)))).Value) }"
+                )
+            )
+        ),
+        Value,""
+    )
+)
