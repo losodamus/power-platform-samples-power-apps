@@ -1,0 +1,5 @@
+// Set the 'Fill' property of the parent to:
+// RGBA(vColorValueR, vColorValueG, vColorValueB, 1)
+Set(vColorValueR, RandBetween(0, 255));
+Set(vColorValueG, RandBetween(0, 255));
+Set(vColorValueB, RandBetween(0, 255));
