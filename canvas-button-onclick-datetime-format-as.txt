@@ -1,0 +1,5 @@
+// Format and assign date to global variable:
+// e.g., Mar. 15, 2023
+Set(vFormatDate, 
+    $"{ Last(FirstN(Calendar.MonthsShort(), Month(Now()))).Value }. {Day(Now())}, {Year(Now())}"
+)
