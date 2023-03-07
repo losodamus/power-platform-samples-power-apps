@@ -1,0 +1,19 @@
+// Assign custom generated GUID value to global variable using ASCII values.
+Set(vGuid, 
+    Concat(
+        ForAll(Sequence(32),
+            Switch(RandBetween(0, 2),
+                0, $"{ With(
+                        { tempValue: RandBetween(1, 10) },
+                        Switch(tempValue,
+                            10, "0",
+                            $"{ tempValue }"
+                        )) 
+                    }", // Numbers
+                1, $"{ Char(RandBetween(65, 90)) }", // Uppercase Letters
+                2, $"{ Char(RandBetween(97, 122)) }" // Lowercase Letters
+            )
+        ),
+        Value,""
+    )
+)
