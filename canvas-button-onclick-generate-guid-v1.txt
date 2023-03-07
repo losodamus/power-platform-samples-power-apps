@@ -1,3 +1,4 @@
+// Assign custom generated GUID value to global variable using tables.
 Set(vGuid, 
     Concat(
         With(
