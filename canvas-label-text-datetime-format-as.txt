@@ -1,0 +1,3 @@
+// Format and assign date to label text w/ string interpolation:
+// e.g., Mar. 15, 2023
+$"{ Last(FirstN(Calendar.MonthsShort(), Month(Now()))).Value }. { Text(Now(), "dd, yyyy") } at { Text(Now(), "hh:mm:ss") }"
