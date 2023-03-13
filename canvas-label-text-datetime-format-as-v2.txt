@@ -1,0 +1,22 @@
+// Format and assign date to label text w/ string interpolation, Text() and With():
+// e.g., Mar. 15, 2023 @ 2:45:00 PM
+$"{
+    With(
+        { vDate: Now() }, 
+        With(
+            {
+                vMM: Month(vDate),
+                vHH: Hour(vDate)
+            },
+            $"{
+                Last(FirstN(Calendar.MonthsShort(), vMM)).Value 
+            } { 
+                Text(vDate, "dd, yyyy") 
+            } @ { 
+                If(vHH <= 12, 
+                    Text(vDate, "hh:mm:ss AM"), 
+                    Text(vDate, $"{ vHH - 12 }:mm:ss PM"))
+            }"
+        )
+    )
+}"
