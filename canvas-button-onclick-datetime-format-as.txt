@@ -1,5 +1,5 @@
-// Format and assign date to global variable:
+// Format and assign date to global variable w/ string interpolation:
 // e.g., Mar. 15, 2023
 Set(vFormatDate, 
-    $"{ Last(FirstN(Calendar.MonthsShort(), Month(Now()))).Value }. {Day(Now())}, {Year(Now())}"
+    $"{ Last(FirstN(Calendar.MonthsShort(), Month(Now()))).Value }. { Text(Now(), "dd, yyyy") }"
 )
