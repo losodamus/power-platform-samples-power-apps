@@ -1,0 +1,17 @@
+// Calculate number of days in a month:
+// ----------------------------------------
+// First, store the current date in a variable.
+// Next, format the first day of the current month.
+// Next, move the DateValue() to next month by adding 32 days.
+// Then, format the first day of next month and subtract 1 day.
+$"{
+    With(
+        { vTempDate: Now() }, 
+        With(
+            {
+                vNextMonth: $"{ DateValue(Month(vTempDate) & "/1/" & Year(vTempDate)) + 32 }"
+            },
+            $"{ Day(DateValue($"{ Month(vNextMonth) }/1/{ Year(vNextMonth) }") - 1) }"
+        )
+    )
+}"
